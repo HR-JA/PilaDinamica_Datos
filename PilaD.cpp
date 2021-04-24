@@ -13,7 +13,7 @@ void Nodo::pop(Nodo *&pila){
 void Nodo::display(Nodo *&pila, int cont){
   Nodo *temp = pila;
   GUI grahp;
-  for(int i=0;temp!=NULL;i++){
+  for(int i=cont-1;temp!=NULL;i--){
     if(i!=cont-1)grahp.pila(temp->value,i);
     else grahp.pila(temp->value,-1);
     temp = temp->next;
