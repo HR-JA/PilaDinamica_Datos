@@ -1,5 +1,6 @@
 #include "PilaD.h"
 #include <cstdlib>
+/* Menu para la terminal
 int menu(){
   int opc;
   cout <<"\n\n1.- Push"
@@ -7,30 +8,34 @@ int menu(){
          "\n0.- Salir"<<endl;
   cin>>opc;
   return opc;
-}
+}*/
 
 int main(){
+  initscr();
+  GUI graph;
   Nodo *pila = NULL;
   int value, dat, cont=0, opc=1;
   do {
-    switch (menu()) {
+    pila->vacia(cont);
+    switch (graph.menu()) {
       case 1:{
         cont++;
-        cin>>dat;
+        scanw("%d",&dat);
         pila->push(pila, dat);
-        system("clear");
+        clear();//system("clear");
         pila->display(pila, cont);
       }break;
 
       case 2:{
         cont--;
         pila->pop(pila);
-        system("clear");
+        clear();//system("clear");
         pila->display(pila, cont);
       }break;
 
-      case 0:opc=0;break;
-      default:cout << "\nOpcion no disponible" << '\n';
+      case 3:opc=3;break;
+      default:break;
     }
-  } while(opc!=0);
+  } while(opc!=3);
+  endwin();
 }
