@@ -16,7 +16,8 @@ int main(){
     switch (menu()) {
       case 1:{
         cont++;
-        pila->push(pila, cont);
+        cin>>dat;
+        pila->push(pila, dat);
         system("clear");
         pila->display(pila, cont);
       }break;
